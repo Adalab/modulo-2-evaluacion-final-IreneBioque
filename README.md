@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Evaluación final del módulo 2
 
 Este proyecto consiste en una página web para distintos dispositivos
@@ -122,3 +123,6 @@ This project is licensed under the MIT License MIT License see the [LICENSE](LIC
 
 - Gracias a las compañeras y profesores de Adalab 🍺
 - Thanks to the colleagues and teachers of Adalab 🍺
+=======
+
+>>>>>>> da634b19dcbc0af040d68737fec0ab407913dc45
