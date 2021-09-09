@@ -103,6 +103,7 @@ And then:
 - HTML
 - SASS
 - GULP
+- JavaScript
 
 ## Autores ✒️ / Authors ✒️
 
