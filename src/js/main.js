@@ -7,14 +7,14 @@ const favourite = document.querySelector('.js_favourite');
 let data = [];
 
 
-function getAPI() {
+function getApi() {
   let inputValue = input.value;
-  let api = '//api.tvmaze.com/search/shows?q=' + inputValue;
+  let api = `//api.tvmaze.com/search/shows?q=${inputValue}`;
   return api;
 }
 
 function url() {
-  let api = getAPI();
+  let api = getApi();
   fetch(api)
     .then( response => response.json() )
     .then( dataApi => {
