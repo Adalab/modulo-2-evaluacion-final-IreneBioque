@@ -3,43 +3,52 @@
 const input = document.querySelector('.js_search');
 const button = document.querySelector('.js_button');
 const favourite = document.querySelector('.js_favourite');
-const form = document.querySelector('.js_form');
+// const form = document.querySelector('.js_form');
 let data = [];
 
-fetch(`//api.tvmaze.com/search/shows?q=:${input.value}`)
-  .then( response => response.json() )
-  .then( dataApi => {
-    data = dataApi;
 
-    // render();
-  } );
+function getAPI() {
+  let inputValue = input.value;
+  let api = '//api.tvmaze.com/search/shows?q=' + inputValue;
+  return api;
+}
 
-function render() {
+function url() {
+  let api = getAPI();
+  fetch(api)
+    .then( response => response.json() )
+    .then( dataApi => {
+      data = dataApi;
+    });
+  
+}
+
+function paintHtml() {
   console.log(data);
-  const dataFilter = data
-      .filter(data => data.name.toLocaleLowerCase().includes(input.value))
-    .map(serieData => serieData.name)
   favourite.innerHTML = '';
-  for (const data of dataFilter) {
-    const html = `<li>${data}</li>`;
-
-    favourite.innerHTML += html;
+  for (const serie of data) {
+    const showName = serie.show.name;
+    const showImageNull = serie.show.image;
+    const nullImage = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+    if (showImageNull === null) {
+      const html = `<li><h3>${showName}</h3><img src="${nullImage}" alt=""></li>`;
+      favourite.innerHTML += html;
+    } else {
+      const showImage = serie.show.image.medium;
+      const html = `<li><h3>${showName}</h3><img src="${showImage}" alt=""></li>`;
+      favourite.innerHTML += html;
+    } 
   }
+
 }
 
-function handleType() {
-  render();
+function handleType(ev) {
+  ev.preventDefault();
+  paintHtml();
+  url();
 }
 
-input.addEventListener('keyup', handleType);
-form.addEventListener('submit', (event) => event.preventDefault() );
-// function handleSearch(){
-//   console.log(inputSearch);
-// }
-
-
-
-// button.addEventListener('click', handleSearch);
+button.addEventListener('click', handleType);
 
 
 
