@@ -80,12 +80,17 @@ function paintfavorites() {
   favoritesList.innerHTML = '';
   for (let favorite of favorites) {
     const title = favorite.title;
-    const image = favorite.image.medium;
+    const showImageNull = favorite.image;
     const id = favorite.id;
-    let html = `<li class="js_lifav" id="${id}"><h3>${title}</h3><img src="${image}" alt="covershow"></li>`;
-    favoritesList.innerHTML += html;
-
-
+    const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
+    if (showImageNull === null) {
+      const html = `<li class="js_li" id="${id}"><h3>${title}</h3><img src="${nullImage}" alt="covershow"></li>`;
+       favoritesList.innerHTML += html;
+    } else {
+      const image = favorite.image.medium;
+      const html = `<li class="js_li" id="${id}"><h3>${title}</h3><img src="${image}" alt="covershow"></li>`;
+       favoritesList.innerHTML += html;
+    }
   }
 }
 
