@@ -77,6 +77,7 @@ function handleShow(ev) {
 }
 
 function paintfavorites() {
+  favoritesList.innerHTML = '';
   for (let favorite of favorites) {
     const title = favorite.title;
     const image = favorite.image.medium;
