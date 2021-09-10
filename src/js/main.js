@@ -70,6 +70,7 @@ function handleShow(ev) {
   } else {
     favorites.splice(favoritesFound, 1);
   }
+ 
 
   console.log(favorites);
   paintfavorites();
@@ -84,11 +85,11 @@ function paintfavorites() {
     const id = favorite.id;
     const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     if (showImageNull === null) {
-      const html = `<li class="js_li" id="${id}"><h3>${title}</h3><img src="${nullImage}" alt="covershow"></li>`;
+      const html = `<li class="js_listfavorite" id="${id}"><h3>${title}</h3><img src="${nullImage}" alt="covershow"></li>`;
       favoritesList.innerHTML += html;
     } else {
       const image = favorite.image.medium;
-      const html = `<li class="js_li" id="${id}"><h3>${title}</h3><img src="${image}" alt="covershow"></li>`;
+      const html = `<li class="js_listfavorite" id="${id}"><h3>${title}</h3><img src="${image}" alt="covershow"></li>`;
       favoritesList.innerHTML += html;
     }
   }
@@ -96,9 +97,9 @@ function paintfavorites() {
 
 function listenShows() {
   const listShows = document.querySelectorAll('.js_li');
-  console.log(listShows);
   for (let li of listShows) {
     li.addEventListener('click', handleShow);
+    li.addEventListener('click', isFavorite);
   }
 }
 
