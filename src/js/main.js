@@ -55,7 +55,6 @@ function paintHtml() {
   }
   paintfavorites();
   listenShows();
-  console.log(paintfavorites);
 }
 function handleShow(ev) {
   //debugger;
@@ -74,6 +73,7 @@ function handleShow(ev) {
 
   console.log(favorites);
   paintfavorites();
+  setInLocalStorage();
 }
 
 function paintfavorites() {
@@ -85,11 +85,11 @@ function paintfavorites() {
     const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     if (showImageNull === null) {
       const html = `<li class="js_li" id="${id}"><h3>${title}</h3><img src="${nullImage}" alt="covershow"></li>`;
-       favoritesList.innerHTML += html;
+      favoritesList.innerHTML += html;
     } else {
       const image = favorite.image.medium;
       const html = `<li class="js_li" id="${id}"><h3>${title}</h3><img src="${image}" alt="covershow"></li>`;
-       favoritesList.innerHTML += html;
+      favoritesList.innerHTML += html;
     }
   }
 }
@@ -109,5 +109,26 @@ function handleType(ev) {
 
 button.addEventListener('click', handleType);
 
+function setInLocalStorage() {
+  // se convierte el objeto en un string
+  const stringFavorites = JSON.stringify(favorites);
+  // guardo el array y el string en local
+  localStorage.setItem('favorites', stringFavorites);
+}
 
 
+function getLocalStorage() {
+  // cojo el array de local
+  const localStorageShows = localStorage.getItem('favorites');
+  // si es nulo (no hay nada guardado) llamo a la api
+  if (localStorageShows !== null) {
+    const arrayFavorites = JSON.parse(localStorageShows);
+    favorites = arrayFavorites;
+    paintfavorites();
+  } 
+  // transforma a JSON?
+   
+}
+getLocalStorage();
+
+console.log(getLocalStorage);
