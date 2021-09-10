@@ -37,15 +37,28 @@ function url() {
 
 function paintHtml() {
   console.log(shows);
-  list.innerHTML = '';
+  let favClass = '';
+
   for (const serie of shows) {
     //  debugger;
+    let isValidClass;
+    if (isValidShow(serie)) {
+      isValidClass = '';
+    } else {
+      isValidClass = 'hidden';
+    }
+    const isFav = isFavorite(serie);
+    if (isFav) {
+      favClass = 'selected';
+    } else {
+      favClass = '';
+    }
     const showName = serie.title;
     const showImageNull = serie.image;
     const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     const idli = serie.id;
     if (showImageNull === null) {
-      const html = `<li class="js_li" id="${idli}"><h3>${showName}</h3><img src="${nullImage}" alt="covershow"></li>`;
+      const html = `<li class="js_li ${favClass} ${isValidClass}" id="${idli}"><h3>${showName}</h3><img src="${nullImage}" alt="covershow"></li>`;
       list.innerHTML += html;
     } else {
       const showImage = serie.image.medium;
@@ -70,15 +83,33 @@ function handleShow(ev) {
   } else {
     favorites.splice(favoritesFound, 1);
   }
- 
+
 
   console.log(favorites);
   paintfavorites();
   setInLocalStorage();
 }
 
+function isFavorite(show) {
+  const favoriteFound = favorites.find((fav) => {
+    return fav.id === show.id;
+  });
+  if (favoriteFound === undefined) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function isValidShow(show) {
+  const filterValue = input.value;
+  return show.name.toLowerCase().includes(filterValue);
+}
+
+
 function paintfavorites() {
   favoritesList.innerHTML = '';
+
   for (let favorite of favorites) {
     const title = favorite.title;
     const showImageNull = favorite.image;
@@ -99,7 +130,6 @@ function listenShows() {
   const listShows = document.querySelectorAll('.js_li');
   for (let li of listShows) {
     li.addEventListener('click', handleShow);
-    li.addEventListener('click', isFavorite);
   }
 }
 
@@ -126,9 +156,9 @@ function getLocalStorage() {
     const arrayFavorites = JSON.parse(localStorageShows);
     favorites = arrayFavorites;
     paintfavorites();
-  } 
+  }
   // transforma a JSON?
-   
+
 }
 getLocalStorage();
 
