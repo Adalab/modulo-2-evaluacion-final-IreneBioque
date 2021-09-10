@@ -3,6 +3,7 @@
 const input = document.querySelector('.js_search');
 const button = document.querySelector('.js_button');
 const list = document.querySelector('.js_list');
+const favoritesList = document.querySelector('.js_favorites');
 // const form = document.querySelector('.js_form');
 let shows = [];
 let favorites = [];
@@ -37,10 +38,6 @@ function url() {
 function paintHtml() {
   console.log(shows);
   list.innerHTML = '';
-  /*const showName = shows.map(nameShow => nameShow.name);
-  const showImage = shows.map(imageShow => imageShow.image);
-  const idli = serie.show.id;
-  console.log(showName);*/
   for (const serie of shows) {
     //  debugger;
     const showName = serie.title;
@@ -58,10 +55,10 @@ function paintHtml() {
   }
   paintfavorites();
   listenShows();
-
+  console.log(paintfavorites);
 }
 function handleShow(ev) {
-   //debugger;
+  //debugger;
   const selectedShow = parseInt(ev.currentTarget.id);
   const showClicked = shows.find((show) => {
     return show.id === selectedShow;
@@ -74,13 +71,21 @@ function handleShow(ev) {
   } else {
     favorites.splice(favoritesFound, 1);
   }
- 
-  console.log(favorites)
- 
+
+  console.log(favorites);
+  paintfavorites();
 }
-  
+
 function paintfavorites() {
-  
+  for (let favorite of favorites) {
+    const title = favorite.title;
+    const image = favorite.image.medium;
+    const id = favorite.id;
+    let html = `<li class="js_lifav" id="${id}"><h3>${title}</h3><img src="${image}" alt="covershow"></li>`;
+    favoritesList.innerHTML += html;
+
+
+  }
 }
 
 function listenShows() {
