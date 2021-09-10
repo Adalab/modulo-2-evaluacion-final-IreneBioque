@@ -1,7 +1,9 @@
-body {
-  padding: 2rem;
+.main {
   height: 100vh;
-  background-image: url('../images/bg-adalab.png');
-  background-color: $color-bg;
-  font-family: $font-main;
+}
+
+.sections {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 7px;
 }
