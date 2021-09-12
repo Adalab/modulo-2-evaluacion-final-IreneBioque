@@ -138,6 +138,7 @@ function handleClose(ev){
     favorites.splice(favoritesFound, 1);
   }
   paintfavorites();
+  paintHtml();
   setInLocalStorage();
 }
 
@@ -158,6 +159,7 @@ function handleReset(){
   console.log(favorites);
   setInLocalStorage();
   paintfavorites();
+  paintHtml();
 }
 
 
