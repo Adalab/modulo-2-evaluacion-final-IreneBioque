@@ -3,10 +3,50 @@
 }
 
 .sections {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 7px;
+  width: 100%;
+  height: 100vh;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+.showsection {
+  grid-column: 2/4;
+}
+.listshowul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+.lishow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2px;
+  &__image {
+    transform: scale(90%);
+  }
+}
+.lifavorite {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &__image {
+    width: 105px;
+    height: 147px;
+    text-align: start;
+    margin: 5px;
+  }
+  &__deleted {
+    margin: auto;
+  }
+}
+
 .selected {
   background-color: rebeccapurple;
 }
