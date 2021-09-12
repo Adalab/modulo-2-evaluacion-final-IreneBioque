@@ -4,32 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Evaluación final</title>
+    <script
+      src="https://kit.fontawesome.com/adcd08db79.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
-      <header>
-          <h1>Buscador de series</h1>
-      </header>
-      <main class="main">
-          <form action="" class="js_form">
-              <input type="text" class="js_search">
-              <button class="js_button">Buscar</button>
-          </form>
-          <div class="sections">
-          <section>
-              <h2>Mis series favoritas</h2>
-              <div>
-                  <ul class="js_favorites"></ul>
-              </div>
-          </section>
-          <section>
-              <h2>Listado de series</h2>
-              <ul class="js_list"></ul>
-          </section>
-          </div>
-      </main>
-      
-      
+    <header>
+        <h1>Buscador de series</h1>
+    </header>
+    <main class="main">
+      <form action="" class="js_form">
+        <input type="text" class="js_search" />
+        <button class="js_button">Buscar</button>
+      </form>
+      <div class="sections">
+        <section class="favoritessection">
+          <h2>Mis series favoritas</h2>
+          <ul class="js_favorites favoritesul"></ul>
+          <button class="js_reset">Reset</button>
+        </section>
+        <section class="showsection">
+          <h2>Listado de series</h2>
+          <ul class="js_list listshowul"></ul>
+        </section>
+      </div>
+    </main>
+
+    
+
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
