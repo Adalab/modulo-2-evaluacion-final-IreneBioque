@@ -5,7 +5,7 @@ const button = document.querySelector('.js_button');
 const list = document.querySelector('.js_list');
 const favoritesList = document.querySelector('.js_favorites');
 // const form = document.querySelector('.js_form');
-// const buttonReset = document.querySelector('.js_reset');
+const buttonReset = document.querySelector('.js_reset');
 let shows = [];
 let favorites = [];
 
@@ -140,7 +140,6 @@ function handleClose(ev){
   }
   paintfavorites();
   setInLocalStorage();
-  console.log(favorites);
 }
 
 function listenCloses(){
@@ -150,6 +149,20 @@ function listenCloses(){
   }
 }
 
+function handleReset(){
+  const favoritesFound = favorites.findIndex((fav) => {
+    return fav.id;
+  });
+  if (favoritesFound !== -1) {
+    favorites.splice(0);
+  }
+  console.log(favorites);
+  setInLocalStorage();
+  paintfavorites();
+}
+
+
+buttonReset.addEventListener('click', handleReset);
 button.addEventListener('click', handleType);
 function setInLocalStorage() {
   // se convierte el objeto en un string
