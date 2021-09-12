@@ -50,18 +50,16 @@ function paintHtml() {
     const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     const idli = serie.id;
     if (showImageNull === null) {
-      const html = `<li class="js_li ${favClass} lishow" id="${idli}"><h3>${showName}</h3><img src="${nullImage}" alt="covershow" class="lishow__image"></li>`;
+      const html = `<li class="js_li ${favClass} lishow" id="${idli}"><h3 class="lishow__title">${showName}</h3><img src="${nullImage}" alt="covershow" class="lishow__image"></li>`;
       list.innerHTML += html;
     } else {
       const showImage = serie.image.medium;
-      const html = `<li class="js_li ${favClass} lishow" id="${idli}"><h3>${showName}</h3><img src="${showImage}" alt="covershow" class="lishow__image"></li>`;
+      const html = `<li class="js_li ${favClass} lishow" id="${idli}"><h3 class="lishow__title">${showName}</h3><img src="${showImage}" alt="covershow" class="lishow__image"></li>`;
       list.innerHTML += html;
     }
   }
   paintfavorites();
   listenShows();
-  // No esta escuchando, porque no me quita la clase selected
-  listenCloses();
 }
 function handleShow(ev) {
   const selectedShow = parseInt(ev.currentTarget.id);
@@ -104,11 +102,11 @@ function paintfavorites() {
     const id = favorite.id;
     const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     if (showImageNull === null) {
-      const html = `<li class="js_listfavorite lifavorite" id="${id}"><img src="${nullImage}" alt="covershow" class="lifavorite__image"><h3>${title}</h3><i class="fas fa-times-circle js_deleted deleted" id="${id}"></li>`;
+      const html = `<li class="js_listfavorite lifavorite" id="${id}"><img src="${nullImage}" alt="covershow" class="lifavorite__image"><h3 class="lifavorite__title">${title}</h3><i class="fas fa-times-circle js_deleted lifavorite__deleted" id="${id}"></li>`;
       favoritesList.innerHTML += html;
     } else {
       const image = favorite.image.medium;
-      const html = `<li class="js_listfavorite lifavorite" id="${id}"><img src="${image}" alt="covershow" class="lifavorite__image"><h3>${title}</h3><i class="fas fa-times-circle js_deleted lifavorite__deleted" id="${id}"></i></li>`;
+      const html = `<li class="js_listfavorite lifavorite" id="${id}"><img src="${image}" alt="covershow" class="lifavorite__image"><h3 class="lifavorite__title">${title}</h3 class="lifavorite__title"><i class="fas fa-times-circle js_deleted lifavorite__deleted" id="${id}"></i></li>`;
       favoritesList.innerHTML += html;
     }
   }
