@@ -41,7 +41,7 @@ function paintHtml() {
   let favClass = '';
   
   for (const serie of shows) {
-      // debugger;
+    // debugger;
     const isFav = isFavorite(serie);
     if (isFav) {
       favClass = 'selected';
@@ -147,7 +147,6 @@ function getLocalStorage() {
     favorites = arrayFavorites;
     paintfavorites();
   }
-  // transforma a JSON?
 
 }
 getLocalStorage();
