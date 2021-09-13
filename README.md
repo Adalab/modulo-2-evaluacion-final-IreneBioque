@@ -1,13 +1,8 @@
 # Evaluación final del módulo 2
 
-Este proyecto consiste en una página web para distintos dispositivos
+Este proyecto consiste en un buscador de series para distintos dispositivos, donde puedes guardar tus series favoritas.
 
-This project consists of a website for different devices.
-
-## Información de interes ⚠️
-
-He trabajado con las ramas, trabajando en la rapa developer, y mergeando a main. En la rama developer he hecho algún cambio respecto a la main, pero no lo he mergeado porque no era lo que se pedia en el ejercicio.
-😋 Gracias por leerme 😋
+This project consists of a series search engine for different devices, where you can save your favourite series.
 
 ## Comenzando 🚀 / Starting 🚀
 
