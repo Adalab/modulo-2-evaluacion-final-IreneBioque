@@ -44,6 +44,13 @@ function handleShow(ev) {
   paintHtml();
   setInLocalStorage();
 }
+function listenShows() {
+  const listShows = document.querySelectorAll('.js_li');
+  for (let li of listShows) {
+    li.addEventListener('click', handleShow);
+  }
+}
+
 
 function isFavorite(show) {
   const favoriteFound = favorites.find((fav) => {

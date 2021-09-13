@@ -1,3 +1,4 @@
+'use strict';
 
 function handleClose(ev){
   const selectedShow = parseInt(ev.currentTarget.id);
@@ -9,7 +10,7 @@ function handleClose(ev){
   }
 
   paintHtml();
-  // Se llama a localStorage para que vaya guardando que se ha borrado
+  // Se llama a localStorage para que guarde lo que se ha borrado
   setInLocalStorage();
 }
 

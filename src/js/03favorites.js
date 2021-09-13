@@ -1,4 +1,4 @@
-
+'use strict'
 
 function paintfavorites() {
   favoritesList.innerHTML = '';
@@ -18,12 +18,6 @@ function paintfavorites() {
     }
   }
   listenCloses();
-}
-function listenShows() {
-  const listShows = document.querySelectorAll('.js_li');
-  for (let li of listShows) {
-    li.addEventListener('click', handleShow);
-  }
 }
 
 function handleType(ev) {
