@@ -1,7 +1,7 @@
-'use strict';
+
 
 function handleClose(ev){
-  const selectedShow = parseInt(ev.currentTarget.id);
+  const selectedShow = parseInt(ev.currentTarget.dataset.id);
   const favoritesFound = favorites.findIndex((fav) => {
     return fav.id === selectedShow;
   });
@@ -10,7 +10,7 @@ function handleClose(ev){
   }
 
   paintHtml();
-  // Se llama a localStorage para que guarde lo que se ha borrado
+  // LocalStorage is called to save what has been deleted.
   setInLocalStorage();
 }
 
@@ -29,7 +29,7 @@ function handleReset(){
     favorites.splice(0);
   }
 
-  // Pinto HTML y favoritos y guardo en LocalStorage el array vacio
+  // Paint HTML and favourites and save the empty array in LocalStorage
   setInLocalStorage();
   paintHtml();
 }

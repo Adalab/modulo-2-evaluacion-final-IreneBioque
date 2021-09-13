@@ -1,22 +1,25 @@
 
 
 function setInLocalStorage() {
-  // se convierte el objeto en un string
+  // the object is converted into a string
   const stringFavorites = JSON.stringify(favorites);
-  // guardo el array y el string en local
+  // Save the array and the string locally
   localStorage.setItem('favorites', stringFavorites);
 }
 
 
 function getLocalStorage() {
-  // cojo el array de local
+  // Take the local array
   const localStorageShows = localStorage.getItem('favorites');
-  // si es nulo (no hay nada guardado) llamo a la api
+  // if null (nothing saved) call the api
   if (localStorageShows !== null) {
     const arrayFavorites = JSON.parse(localStorageShows);
     favorites = arrayFavorites;
+    // Call function painfavorites so that favorites are painted when the page is reloaded.
     paintfavorites();
   }
 
 }
+
+//  Call LocalStorage here because we want it to be saved when the page reloads.
 getLocalStorage();

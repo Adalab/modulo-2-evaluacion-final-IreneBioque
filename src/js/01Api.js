@@ -10,7 +10,6 @@ function url() {
   fetch(api)
     .then( response => response.json() )
     .then( dataApi => {
-      //shows = dataApi;
       shows = dataApi.map(data => {
 
         return {
@@ -19,6 +18,7 @@ function url() {
           image: data.show.image
         };
       });
+       // Call the function that paints HTML to be updated when I search for a result.
       paintHtml();
     });
 

@@ -5,22 +5,23 @@ function paintHtml() {
   list.innerHTML = '';
   let favClass = '';
 
-  for (const serie of shows) {
-    const isFav = isFavorite(serie);
+  for (const show of shows) {
+    // Call the function isFavorite which returns true or false, if true it adds the selected class, if not it does not add a class.
+    const isFav = isFavorite(show);
     if (isFav) {
       favClass = 'selected';
     } else {
       favClass = '';
     }
-    const showName = serie.title;
-    const showImageNull = serie.image;
+    const showName = show.title;
+    const showImageNull = show.image;
     const nullImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
-    const idli = serie.id;
+    const idli = show.id;
     if (showImageNull === null) {
       const html = `<li class="js_li ${favClass} lishow" id="${idli}"><img src="${nullImage}" alt="covershow" class="lishow__image"><h3 class="lishow__title">${showName}</h3></li>`;
       list.innerHTML += html;
     } else {
-      const showImage = serie.image.medium;
+      const showImage = show.image.medium;
       const html = `<li class="js_li ${favClass} lishow" id="${idli}"><img src="${showImage}" alt="covershow" class="lishow__image"><h3 class="lishow__title">${showName}</h3></li>`;
       list.innerHTML += html;
     }
@@ -28,6 +29,8 @@ function paintHtml() {
   paintfavorites();
   listenShows();
 }
+
+
 function handleShow(ev) {
   const selectedShow = parseInt(ev.currentTarget.id);
   const showClicked = shows.find((show) => {
@@ -36,9 +39,11 @@ function handleShow(ev) {
   const favoritesFound = favorites.findIndex((fav) => {
     return fav.id === selectedShow;
   });
+  // if I get back that favoritesFound is -1 (is not there), add it
   if (favoritesFound === -1) {
     favorites.push(showClicked);
   } else {
+    // if it returns anything other than -1 (is there), deletes it.
     favorites.splice(favoritesFound, 1);
   }
   paintHtml();
