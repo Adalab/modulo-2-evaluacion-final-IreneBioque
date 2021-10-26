@@ -1,8 +1,8 @@
-# Evaluación final del módulo 2
+# Serieteca
 
-Este proyecto consiste en un buscador de series para distintos dispositivos, donde puedes guardar tus series favoritas.
+Este proyecto consiste en un buscador de series, donde puedes guardar tus series favoritas. Está realizado de forma responsive para que se pueda disfrutar desde cualquier pantalla.
 
-This project consists of a series search engine for different devices, where you can save your favourite series.
+This project consists of a series search engine, where you can save your favourite series. It is made in a responsive way so that it can be enjoyed from any screen.
 
 ## Comenzando 🚀 / Starting 🚀
 
