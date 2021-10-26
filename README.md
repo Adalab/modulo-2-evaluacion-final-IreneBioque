@@ -1,4 +1,4 @@
-# Serieteca
+# 🍿 Serieteca 🍿
 
 Este proyecto consiste en un buscador de series, donde puedes guardar tus series favoritas. Está realizado de forma responsive para que se pueda disfrutar desde cualquier pantalla.
 
